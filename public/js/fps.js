@@ -2,10 +2,13 @@
 var trace = function(msg){ console.log(msg); };
 
 var displayList;
+var config;
 
 function pageLoad_init()
 {
 	trace("pageLoad_init();");
+
+	config = {};
 
 	list_create();
 }
@@ -44,13 +47,18 @@ function interact_event(event)
 
 	if(_type === "mouseover")
 	{
+		clearTimeout(config.interact_timer);
 		displayList.spinnner.style.animationPlayState = "running";
-		// displayList.spinnner.classList.add("tween-spinner");
 	}
 
 	else if(_type === "mouseout")
 	{
-		displayList.spinnner.style.animationPlayState = "paused";
-		// displayList.spinnner.classList.remove("tween-spinner");
+		config.interact_timer = setTimeout(interact_timer_done, 1.5 * 1000);
+		// displayList.spinnner.style.animationPlayState = "paused";
 	}
+}
+
+function interact_timer_done()
+{
+	displayList.spinnner.style.animationPlayState = "paused";
 }
