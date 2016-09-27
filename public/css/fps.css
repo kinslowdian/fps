@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+html, body
+{
+	width: 100%;
+	height: 100%;
+}
+
+#wrapper
+{
+	max-width: 100%;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.main
+{
+	width: 96%;
+	height: 100%;
+	position: relative;
+	margin: 0 auto;
+}
+
+.spinner
+{
+	width: 90%;
+	height: 90%;
+	max-width: 480px;
+	max-height: 480px;
+
+	position: absolute;
+	left: 50%; top: 50%;
+	transform: translate(-50%, -50%);
+
+	/*background: #ccc;*/
+}
+
+.spinner-sprite
+{
+	width: 100%;
+	height: 100%;
+	max-width: inherit;
+	max-height: inherit;
+	position: relative;
+
+	transform-origin: 50% 50%;
+
+	cursor: pointer;
+	pointer-events: auto;
+}
+
+.gfx-spinner
+{
+	background-image: url(../img/crocs.svg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.tween-spinner
+{
+	animation: tweenSpinnerFrames 8s linear infinite;
+	will-change: transform;
+}
+
+@keyframes tweenSpinnerFrames
+{
+	0%		{ transform: rotate(0deg); }
+	100%	{ transform: rotate(360deg); }
+}
+
+
