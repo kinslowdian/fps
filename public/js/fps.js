@@ -61,6 +61,8 @@ function interact_event(event)
 		config.interact_timer = setTimeout(interact_timer_done, 1.5 * 1000);
 		// displayList.spinnner.style.animationPlayState = "paused";
 	}
+
+	trace(_type);
 }
 
 function interact_timer_done()
